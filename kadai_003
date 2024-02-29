@@ -1,0 +1,10 @@
+import numpy as np
+
+A = np.array([[0, 1], [2, 3], [4, 5]])
+B = np.array([[0, 1, 2, 3], [4, 5, 6, 7]])
+matrix = np.dot(A, B)
+print(np.dot(A, B))
+
+# 行列の要素の最大値を求める
+max_value = np.max(matrix)
+print("行列の要素の最大値:", max_value)
