@@ -1,0 +1,45 @@
+import matplotlib.pyplot as plt
+import numpy as np
+!pip install japanize_matplotlib
+import japanize_matplotlib
+
+# データの準備
+x = np.linspace(0, 10, 100)
+y0 = [1, 2, -5, 2]
+y1 = 2 + 2 * np.sin(2 * x)
+y2 = np.random.normal(15, 5, 2000)
+y3 = 3 + np.random.normal(0, 2, len(x))
+
+# グラフの作成と配置
+fig, axes = plt.subplots(2, 3, tight_layout=True)
+
+# 折れ線グラフ
+axes[0, 0].plot(y0)
+axes[0, 0].set_title('折れ線グラフ')
+
+# sin関数
+axes[0, 1].plot(x, y1, linewidth=2.0)
+axes[0, 1].set(xlim=(0, 10), xticks=np.arange(0, 10),
+               ylim=(-1, 5), yticks=np.arange(-1, 6))
+axes[0, 1].set_title('sin関数')
+
+# ヒストグラム
+axes[0, 2].hist(y2, bins=30, color='skyblue', edgecolor='black')
+axes[0, 2].set(xlim=(-10, 40))
+axes[0, 2].set_title('ヒストグラム')
+
+# 散布図
+axes[1, 0].scatter(x, y3)
+axes[1, 0].set_title('散布図')
+
+# 空のプロット
+axes[1, 1].axis('off')  # 空のプロット領域を作成しています
+
+# 空のプロット
+axes[1, 2].axis('off')  # 空のプロット領域を作成しています
+
+# グラフのレイアウト調整
+plt.tight_layout()
+
+# グラフの表示
+plt.show()
